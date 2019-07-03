@@ -32,3 +32,7 @@ INSERT INTO viajaran (id_lugar,id_persona)
   VALUES (2,4),(4,5),(5,3);
 
 ALTER TABLE viajaran ADD UNIQUE(id_persona,id_lugar);
+
+DELETE FROM viajaran WHERE id_persona=(
+  SELECT id_persona FROM personas WHERE persona='Isabel'
+);
