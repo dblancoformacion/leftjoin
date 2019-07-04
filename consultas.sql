@@ -51,3 +51,13 @@ SELECT persona FROM (
   ) c3 JOIN personas USING(id_persona);
 
 -- (08) Personas que sólo tienen previsto un viaje
+SELECT persona FROM (
+    SELECT id_persona FROM viajaran GROUP BY 1
+      HAVING COUNT(*)=1  
+  ) c1 JOIN personas USING(id_persona);
+
+SELECT persona FROM personas WHERE id_persona IN (
+    SELECT id_persona FROM viajaran GROUP BY id_persona
+      HAVING COUNT(*)=1
+);
+
