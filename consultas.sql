@@ -49,3 +49,5 @@ SELECT persona FROM (
         SELECT COUNT(DISTINCT id_lugar) FROM viajaran
     )  
   ) c3 JOIN personas USING(id_persona);
+
+-- (08) Personas que sólo tienen previsto un viaje
